@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 11 Bio Q-Cards | Autumn O'Blenes</title>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Top bar for Unit Selection -->
+        <header class="sidebar">
+            <h1 class="logo">Grade 11 Bio Q-Cards</h1>
+            <nav id="unit-nav" class="unit-nav">
+                <!-- Unit buttons dynamically injected here -->
+            </nav>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <div class="workspace-header">
+                <h2 id="current-unit-title">Select a Unit</h2>
+                <div class="progress-indicator">
+                    Card <span id="current-card-number">0</span> / <span id="total-cards">0</span>
+                </div>
+            </div>
+
+            <div class="card-area">
+                <!-- 3D Card Scene -->
+                <div class="scene scene--card" aria-label="Flashcard">
+                    <div id="flashcard" class="card">
+                        <div class="card__face card__face--front">
+                            <div class="card-content">
+                                <span class="card-label">Prompt</span>
+                                <img id="card-q-img" class="card-img" src="" alt="Question Image" style="display: none;">
+                                <h3 id="card-question">Select a unit to begin</h3>
+                            </div>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <div class="card-content">
+                                <span class="card-label">Answer</span>
+                                <img id="card-a-img" class="card-img" src="" alt="Answer Image" style="display: none;">
+                                <p id="card-answer">...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="btn-prev" class="control-btn" aria-label="Previous Card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="control-hint">Click the card to flip</span>
+                    <button id="btn-next" class="control-btn" aria-label="Next Card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+                <div id="unit-1-actions" style="margin-top: 15px; display: none; text-align: center; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button id="btn-skip-1" class="skip-btn">1.1</button>
+                    <button id="btn-skip-17" class="skip-btn">1.2</button>
+                    <button id="btn-skip-24" class="skip-btn">1.3</button>
+                    <button id="btn-skip-32" class="skip-btn">1.4</button>
+                    <button id="btn-skip-46" class="skip-btn">2.1</button>
+                    <button id="btn-skip-120" class="skip-btn">2.2</button>
+                    <button id="btn-skip-154" class="skip-btn">2.3</button>
+                    <button id="btn-skip-189" class="skip-btn">3.1</button>
+                    <button id="btn-skip-210" class="skip-btn">3.2</button>
+                    <button id="btn-skip-235" class="skip-btn">3.3</button>
+                </div>
+                <div id="unit-2-actions" style="margin-top: 15px; display: none; text-align: center; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button id="btn-u2-skip-1" class="skip-btn">4.1</button>
+                    <button id="btn-u2-skip-44" class="skip-btn">4.2</button>
+                    <button id="btn-u2-skip-61" class="skip-btn">4.3</button>
+                    <button id="btn-u2-skip-94" class="skip-btn">4.4</button>
+                    <button id="btn-u2-skip-120" class="skip-btn">5.1</button>
+                    <button id="btn-u2-skip-151" class="skip-btn">5.7</button>
+                    <button id="btn-u2-skip-165" class="skip-btn">5.2</button>
+                    <button id="btn-u2-skip-182" class="skip-btn">5.5</button>
+                    <button id="btn-u2-skip-186" class="skip-btn">5.3</button>
+                    <button id="btn-u2-skip-195" class="skip-btn">6.1</button>
+                    <button id="btn-u2-skip-206" class="skip-btn">6.2</button>
+                </div>
+                <div id="unit-3-actions" style="margin-top: 15px; display: none; text-align: center; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button id="btn-u3-skip-1" class="skip-btn">7.1</button>
+                    <button id="btn-u3-skip-19" class="skip-btn">7.2</button>
+                    <button id="btn-u3-skip-37" class="skip-btn">7.3</button>
+                    <button id="btn-u3-skip-43" class="skip-btn">7.4</button>
+                    <button id="btn-u3-skip-60" class="skip-btn">7.5</button>
+                    <button id="btn-u3-skip-68" class="skip-btn">8.1</button>
+                    <button id="btn-u3-skip-92" class="skip-btn">8.2</button>
+                    <button id="btn-u3-skip-114" class="skip-btn">8.3</button>
+                </div>
+                <div id="unit-4-actions" style="margin-top: 15px; display: none; text-align: center; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button id="btn-u4-skip-1" class="skip-btn">9.1</button>
+                    <button id="btn-u4-skip-12" class="skip-btn">9.2</button>
+                    <button id="btn-u4-skip-33" class="skip-btn">9.3</button>
+                    <button id="btn-u4-skip-46" class="skip-btn">9.4</button>
+                    <button id="btn-u4-skip-66" class="skip-btn">9.5</button>
+                    <button id="btn-u4-skip-87" class="skip-btn">9.6</button>
+                    <button id="btn-u4-skip-104" class="skip-btn">10.1</button>
+                    <button id="btn-u4-skip-113" class="skip-btn">10.2</button>
+                    <button id="btn-u4-skip-138" class="skip-btn">10.3</button>
+                    <button id="btn-u4-skip-155" class="skip-btn">10.4</button>
+                    <button id="btn-u4-skip-186" class="skip-btn">10.5</button>
+                    <button id="btn-u4-skip-194" class="skip-btn">lab</button>
+                    <button id="btn-u4-skip-205" class="skip-btn">11.1</button>
+                    <button id="btn-u4-skip-230" class="skip-btn">11.2</button>
+                    <button id="btn-u4-skip-249" class="skip-btn">11.3</button>
+                    <button id="btn-u4-skip-265" class="skip-btn">11.4</button>
+                    <button id="btn-u4-skip-290" class="skip-btn">11.5</button>
+                </div>
+                <div id="unit-5-actions" style="margin-top: 15px; display: none; text-align: center; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button id="btn-u5-skip-1" class="skip-btn">12.1</button>
+                    <button id="btn-u5-skip-23" class="skip-btn">12.2</button>
+                    <button id="btn-u5-skip-32" class="skip-btn">12.3</button>
+                    <button id="btn-u5-skip-35" class="skip-btn">12.4</button>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
